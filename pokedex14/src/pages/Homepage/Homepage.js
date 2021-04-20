@@ -1,8 +1,9 @@
 import { useHistory } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { goToDetailspage } from '../../routes/coordinator';
+import { useState } from 'react';
 import { PokeCard } from '../../components/index';
-import axios from 'axios';
 import styled from 'styled-components';
+import useRequestPokemon from '../../Hooks/useRequestPokemon';
 
 const PageContainer = styled.main`
   padding: 45px;
@@ -12,28 +13,21 @@ const PageContainer = styled.main`
 `;
 
 const Homepage = () => {
-  const [pokemon, setPokemon] = useState({});
-  useEffect(() => {
-    axios.get('https://pokeapi.co/api/v2/pokemon/ditto').then((response) => {
-      setPokemon(response.data);
-    });
-  }, []);
   const history = useHistory();
+  const [pokemons, setPokemons] = useState([]);
+  useRequestPokemon(setPokemons);
 
-  return (
-    <PageContainer>
+  const pokeCards =
+    pokemons &&
+    pokemons.map((item) => (
       <PokeCard
-        pokemon={pokemon}
+        pokemon={item}
         onClick={() => alert('Em construção T_T')}
-        showDetails={() => alert('Em construção T_T')}
+        showDetails={() => goToDetailspage(history, item.name)}
       />
-      <PokeCard pokemon={pokemon} />
-      <PokeCard pokemon={pokemon} />
-      <PokeCard pokemon={pokemon} />
-      <PokeCard pokemon={pokemon} />
-      <PokeCard pokemon={pokemon} />
-    </PageContainer>
-  );
+    ));
+
+  return <PageContainer>{pokeCards}</PageContainer>;
 };
 
 export default Homepage;
