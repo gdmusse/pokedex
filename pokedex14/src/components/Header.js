@@ -1,3 +1,4 @@
+
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../images/logo.png";
@@ -17,7 +18,6 @@ const HeaderContainer = styled.div`
   width: 80%;
   margin: 0 auto;
 `;
-
 const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -30,7 +30,6 @@ const TitleContainer = styled.div`
 const ImgContainer = styled.div`
   display: flex;
   flex: 1;
-
   justify-content: flex-end;
   & > img:hover {
     cursor: pointer;
