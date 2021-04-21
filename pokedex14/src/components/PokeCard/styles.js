@@ -62,6 +62,7 @@ const PokeDetails = styled.section`
 
 const PokeTypes = styled.section`
   padding-top: 8px;
+  gap: 10px;
   display: flex;
 `;
 

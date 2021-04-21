@@ -24,7 +24,7 @@ const PokeCard = ({ pokemon, type, onClick, showDetails }) => {
         <CardButtons>
           <Button
             text={type === 'pokedex' ? 'Remover' : 'Adicionar'}
-            color={type === 'pokedex' ? 'red' : 'green'}
+            color={type === 'pokedex' ? 'black' : 'black'}
             onClick={onClick}
           />
           <Button text="Details" color="black" onClick={showDetails} />
