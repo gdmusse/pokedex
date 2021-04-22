@@ -1,11 +1,10 @@
-import { useHistory } from "react-router-dom";
-import { goToDetailspage } from "../../routes/coordinator";
-import { PokeCard } from "../../components/index";
-import styled from "styled-components";
-import useRequestPokemon from "../../Hooks/useRequestPokemon";
+import { useHistory } from 'react-router-dom';
+import { goToDetailspage } from '../../routes/coordinator';
+import { PokeCard } from '../../components/index';
+import styled from 'styled-components';
 
-import React, { useContext, useState } from "react";
-import GlobalStateContext from "../../global/GlobalStateContext";
+import React, { useContext } from 'react';
+import GlobalStateContext from '../../global/GlobalStateContext';
 
 const PageContainer = styled.main`
   padding: 45px;
@@ -16,34 +15,22 @@ const PageContainer = styled.main`
 
 const Homepage = () => {
   const history = useHistory();
-  const [pokemons, setPokemons] = useState([]);
-  const { pokedex, setPokedex } = useContext(GlobalStateContext);
-
-  console.log("pokedex", pokedex);
-
-  useRequestPokemon(setPokemons);
-
-  const addToPokeDex = (poke) => {
-    const index = pokedex.findIndex((i) => i.id === poke.id);
-    let newPokedex = [...pokedex];
-    if (index === -1) {
-      newPokedex.push({ ...poke });
-    } else {
-      alert(`${poke.name} já está na Pokedex!`);
-    }
-    setPokedex(newPokedex);
-    alert(`${poke.name} foi adicionado a sua Pokedex!`);
-  };
+  const { addToPokeDex, pokemons, pokedex } = useContext(GlobalStateContext);
 
   const pokeCards =
     pokemons &&
-    pokemons.map((item) => (
-      <PokeCard
-        pokemon={item}
-        onClick={() => addToPokeDex(item)}
-        showDetails={() => goToDetailspage(history, item.name)}
-      />
-    ));
+    pokemons
+      .filter((pokemon) => {
+        return !pokedex?.some((register) => register.id === pokemon.id);
+      })
+      .map((item) => (
+        <PokeCard
+          key={item.id}
+          pokemon={item}
+          onClick={() => addToPokeDex(item)}
+          showDetails={() => goToDetailspage(history, item.name)}
+        />
+      ));
 
   return <PageContainer>{pokeCards}</PageContainer>;
 };
