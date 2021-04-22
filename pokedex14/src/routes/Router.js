@@ -10,7 +10,6 @@ import Pokedex from "../images/pokedex.png"
 const Router = () => {
   return (
     <BrowserRouter>
-
       <Switch>
         <Route exact path="/">
         <Header titulo="Homepage" imagem2={Pokedex}/>
