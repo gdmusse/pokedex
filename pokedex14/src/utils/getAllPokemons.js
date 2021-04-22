@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 const getAllPokemons = async (quantity) => {
   try {
     const response = await axios.get(

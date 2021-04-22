@@ -1,16 +1,18 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { useParams } from "react-router-dom";
 import BASE_URL from '../../routes/urls'
 import useRequestData from '../../Hooks/useRequestData'
 import {DetailsCard, Linha } from './DetailsPageStyled'
 
 
+
 const DetailsPage = () => {
 
     const pathParams = useParams();
-      //Requisição dos dados de detalhes dos pokémons
-    const getDetails = useRequestData(`${BASE_URL} / ${pathParams.name}`, undefined);
     
+    
+    const getDetails = useRequestData(`${BASE_URL}/pokemon/${pathParams.name}`, undefined);
+   
        return (
         <DetailsCard>
             <Linha>
@@ -25,9 +27,10 @@ const DetailsPage = () => {
             <Linha>
              <h2>Sou do tipo</h2>
              {getDetails && getDetails.types.map ((type) => {
+               console.log(type.type.name)
                  return (
                      <Linha>
-                        <p>Meu poder é: {type.type.name}</p>
+                        <p>{type.type.name}</p>
                      </Linha>
                  )
              })
