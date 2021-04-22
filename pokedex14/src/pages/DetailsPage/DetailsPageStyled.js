@@ -21,5 +21,10 @@ background: rgba(255, 255, 255, 0.1);
 `
 
 export const Linha = styled.div `
-width: 100%
+width: 100%;
+color:black;
+`
+
+export const NomePokemon = styled.p `
+color: black
 `
