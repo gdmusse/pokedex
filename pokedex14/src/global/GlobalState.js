@@ -1,18 +1,41 @@
 import React, { useState, useEffect } from "react";
 import GlobalStateContext from "./GlobalStateContext";
-import useRequestPokemon from "../Hooks/useRequestPokemon";
-import useGetPokedexData from "../Hooks/useGetPokedexData";
+import getAllPokemons from "../utils/getAllPokemons"
 import { message } from "antd";
+
 
 const GlobalState = (props) => {
   const [pokedex, setPokedex] = useState([]);
   const [pokemons, setPokemons] = useState([]);
-  useRequestPokemon(setPokemons);
-  useGetPokedexData(setPokedex);
+  const [loading, setLoading] = useState(true);
+
+ 
+
+    useEffect(() => {
+      const allPokemons = async () => {
+        const result = await getAllPokemons(20);
+        setPokemons(result);
+        setLoading(false);
+      };
+      allPokemons();
+    }, [setPokemons]);
+
+
+ 
+      useEffect(() => {
+        const pokedexData = localStorage.getItem('pokedex');
+        if (pokedexData) {
+          setPokedex(JSON.parse(pokedexData));
+          setLoading(false);
+        }
+      }, [setPokedex]);
+  
+    
 
   useEffect(() => {
     localStorage.setItem("pokedex", JSON.stringify(pokedex));
   }, [pokedex]);
+
 
   const successAlert = (msg) => {
     message.success({
@@ -74,9 +97,10 @@ const GlobalState = (props) => {
     }
   };
 
+  
   return (
     <GlobalStateContext.Provider
-      value={{ pokedex, pokemons, addToPokeDex, removeFromPokedex }}
+      value={{ pokedex, pokemons,loading, addToPokeDex, removeFromPokedex, setLoading}}
     >
       {props.children}
     </GlobalStateContext.Provider>

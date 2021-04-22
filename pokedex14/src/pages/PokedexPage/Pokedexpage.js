@@ -4,6 +4,7 @@ import { goToDetailspage } from '../../routes/coordinator';
 import React, { useContext } from 'react';
 import GlobalStateContext from '../../global/GlobalStateContext';
 import { PokeCard } from '../../components/index';
+import Loader from "../../components/Loader"
 
 const PageContainer = styled.main`
   padding: 45px;
@@ -14,7 +15,7 @@ const PageContainer = styled.main`
 
 const Pokedexpage = () => {
   const history = useHistory();
-  const { removeFromPokedex, pokemons, pokedex } = useContext(
+  const { removeFromPokedex, pokemons, pokedex, loading } = useContext(
     GlobalStateContext
   );
 
@@ -33,8 +34,13 @@ const Pokedexpage = () => {
           showDetails={() => goToDetailspage(history, item.name)}
         />
       ));
+      if(pokemons.length !== 0 && loading === false){
+        return <PageContainer>{pokeCards}</PageContainer>;
+      }
+      else {
+        return <Loader/>
+      }
 
-  return <PageContainer>{pokeCards}</PageContainer>;
 };
 
 export default Pokedexpage;
