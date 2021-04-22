@@ -2,7 +2,7 @@ import { useHistory } from 'react-router-dom';
 import { goToDetailspage } from '../../routes/coordinator';
 import { PokeCard } from '../../components/index';
 import styled from 'styled-components';
-
+import Loader from "../../components/Loader"
 import React, { useContext } from 'react';
 import GlobalStateContext from '../../global/GlobalStateContext';
 
@@ -15,7 +15,7 @@ const PageContainer = styled.main`
 
 const Homepage = () => {
   const history = useHistory();
-  const { addToPokeDex, pokemons, pokedex } = useContext(GlobalStateContext);
+  const { addToPokeDex, pokemons, pokedex, loading} = useContext(GlobalStateContext);
 
   const pokeCards =
     pokemons &&
@@ -32,7 +32,12 @@ const Homepage = () => {
         />
       ));
 
-  return <PageContainer>{pokeCards}</PageContainer>;
+      if(pokemons.length !== 0 && loading === false){
+        return <PageContainer>{pokeCards}</PageContainer>;
+      }
+      else {
+        return <Loader/>
+      }
 };
 
 export default Homepage;
