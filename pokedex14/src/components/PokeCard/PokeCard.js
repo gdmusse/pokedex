@@ -7,7 +7,8 @@ import {
 } from './styles';
 import { Button } from '../index';
 
-const PokeCard = ({ pokemon, type, addToPokedex, showDetails }) => {
+const PokeCard = ({ pokemon, type, onClick, showDetails }) => {
+
   return (
     <PokeCardContainer>
       <div>
@@ -25,7 +26,7 @@ const PokeCard = ({ pokemon, type, addToPokedex, showDetails }) => {
           <Button
             text={type === 'pokedex' ? 'Remover' : 'Adicionar'}
             color={type === 'pokedex' ? 'black' : 'black'}
-            onClick={addToPokedex}
+            onClick={onClick}
           />
           <Button text="Details" color="black" onClick={showDetails} />
         </CardButtons>

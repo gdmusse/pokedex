@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { GlobalStateContext } from "./GlobalStateContext";
+import GlobalStateContext from "./GlobalStateContext";
 
-export const GlobalState = (props) => {
+const GlobalState = (props) => {
   const [pokedex, setPokedex] = useState([]);
 
   return (

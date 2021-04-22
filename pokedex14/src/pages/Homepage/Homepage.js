@@ -1,11 +1,11 @@
 import { useHistory } from "react-router-dom";
 import { goToDetailspage } from "../../routes/coordinator";
-import { useState } from "react";
 import { PokeCard } from "../../components/index";
 import styled from "styled-components";
 import useRequestPokemon from "../../Hooks/useRequestPokemon";
-import React, { useContext } from "react";
-import { GlobalStateContext } from "../../global/GlobalStateContext";
+
+import React, { useContext, useState } from "react";
+import GlobalStateContext from "../../global/GlobalStateContext";
 
 const PageContainer = styled.main`
   padding: 45px;
@@ -19,6 +19,8 @@ const Homepage = () => {
   const [pokemons, setPokemons] = useState([]);
   const { pokedex, setPokedex } = useContext(GlobalStateContext);
 
+  console.log("pokedex", pokedex);
+
   useRequestPokemon(setPokemons);
 
   const addToPokeDex = (poke) => {
@@ -29,7 +31,7 @@ const Homepage = () => {
     } else {
       alert(`${poke.name} já está na Pokedex!`);
     }
-    pokedex(setPokedex);
+    setPokedex(newPokedex);
     alert(`${poke.name} foi adicionado a sua Pokedex!`);
   };
 
