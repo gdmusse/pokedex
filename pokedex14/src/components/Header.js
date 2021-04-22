@@ -1,8 +1,8 @@
-import { useHistory } from "react-router-dom";
-import styled from "styled-components";
-import Logo from "../images/logo.png";
-import LogoCrop from "../images/logocrop.png";
-import { goToHomePage, goToPokedex } from "../routes/coordinator";
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+import Logo from '../images/logo.png';
+import LogoCrop from '../images/logocrop.png';
+import { goToHomePage, goToPokedex } from '../routes/coordinator';
 
 const HeaderDiv = styled.div`
   background-color: #ef5350;
@@ -24,13 +24,11 @@ const TitleContainer = styled.div`
   align-items: center;
   color: white;
   font-weight: bold;
-  font-size:calc(20px + 1.5vw);
+  font-size: calc(20px + 1.5vw);
   @media (max-width: 700px) {
-
-  text-align: center;
-  margin-left:10px;
-  width: 35%;
- 
+    text-align: center;
+    margin-left: 10px;
+    width: 35%;
   }
 `;
 
@@ -40,8 +38,7 @@ const ImgContainer = styled.div`
   justify-content: flex-end;
   @media (max-width: 700px) {
     width: 50px;
-    flex-wrap:wrap;
- 
+    flex-wrap: wrap;
   }
   @media (max-width: 1200px) {
   }
@@ -59,8 +56,7 @@ const LogoImg = styled.img`
   height: 100px;
   @media (max-width: 700px) {
     height: 50px;
-    
-}
+  }
   @media (max-width: 1200px) {
     display: none;
   }
@@ -70,11 +66,9 @@ const LogoImgCrop = styled.img`
   width: auto;
   height: 100px;
   @media (max-width: 700px) {
-
     height: 80px;
-}
+  }
   @media (max-width: 1200px) {
-
     display: block;
   }
 `;
@@ -84,11 +78,9 @@ const Imagem1 = styled.img`
   height: 100px;
   @media (max-width: 700px) {
     height: 60px;
-
-}
+  }
   @media (max-width: 1200px) {
     height: 60px;
-
   }
 `;
 
@@ -97,22 +89,18 @@ const Imagem2 = styled.img`
   height: 100px;
   @media (max-width: 700px) {
     height: 60px;
-
-}
+  }
   @media (max-width: 1200px) {
     height: 60px;
-
   }
 `;
 const Header = (props) => {
   const history = useHistory();
-  console.log(props);
-
   return (
     <HeaderDiv>
       <HeaderContainer>
         <LogoContainer>
-          {" "}
+          {' '}
           <LogoImg src={Logo}></LogoImg>
           <LogoImgCrop src={LogoCrop}></LogoImgCrop>
         </LogoContainer>

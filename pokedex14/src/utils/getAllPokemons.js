@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const getPokemons = async () => {
+const getAllPokemons = async (quantity) => {
   try {
     const response = await axios.get(
-      'https://pokeapi.co/api/v2/pokemon?limit=20'
+      `https://pokeapi.co/api/v2/pokemon?limit=${quantity}`
     );
 
     const pokemonsPromises = response.data.results.map(async (response) => {
@@ -13,10 +13,11 @@ const getPokemons = async () => {
 
     let pokemonArray = await Promise.all(pokemonsPromises);
     pokemonArray = pokemonArray.map((item) => item.data);
+
     return pokemonArray;
   } catch (err) {
     console.log(err);
   }
 };
 
-export default getPokemons;
+export default getAllPokemons;

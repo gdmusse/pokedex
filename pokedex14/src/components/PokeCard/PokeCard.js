@@ -8,7 +8,6 @@ import {
 import { Button } from '../index';
 
 const PokeCard = ({ pokemon, type, onClick, showDetails }) => {
-
   return (
     <PokeCardContainer>
       <div>
@@ -19,7 +18,9 @@ const PokeCard = ({ pokemon, type, onClick, showDetails }) => {
         <h2>{pokemon.name}</h2>
         <PokeTypes>
           {pokemon.types?.map((item) => (
-            <Type type={item.type.name}>{item.type.name}</Type>
+            <Type key={item.type.name} type={item.type.name}>
+              {item.type.name}
+            </Type>
           ))}
         </PokeTypes>
         <CardButtons>
