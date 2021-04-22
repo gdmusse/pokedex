@@ -41,6 +41,10 @@ const PokeCardContainer = styled.article`
       width: 100%;
       height: 100%;
       object-fit: contain;
+
+      :hover {
+        transform: scale(1.1);
+      }
     }
   }
 `;
