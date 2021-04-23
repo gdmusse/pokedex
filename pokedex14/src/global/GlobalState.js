@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import GlobalStateContext from "./GlobalStateContext";
-import getAllPokemons from "../utils/getAllPokemons"
-import { message } from "antd";
+import React, { useState, useEffect } from 'react';
+import GlobalStateContext from './GlobalStateContext';
+import getAllPokemons from '../utils/getAllPokemons';
+import { message } from 'antd';
 import Footer from "../components/Footer/Footer"
 
 
@@ -10,41 +10,34 @@ const GlobalState = (props) => {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
 
- 
-
-    useEffect(() => {
-      const allPokemons = async () => {
-        const result = await getAllPokemons(20);
-        setPokemons(result);
-        setLoading(false);
-      };
-      allPokemons();
-    }, [setPokemons]);
-
-
- 
-      useEffect(() => {
-        const pokedexData = localStorage.getItem('pokedex');
-        if (pokedexData) {
-          setPokedex(JSON.parse(pokedexData));
-          setLoading(false);
-        }
-      }, [setPokedex]);
-  
-    
+  useEffect(() => {
+    const allPokemons = async () => {
+      const result = await getAllPokemons(20);
+      setPokemons(result);
+      setLoading(false);
+    };
+    allPokemons();
+  }, [setPokemons]);
 
   useEffect(() => {
-    localStorage.setItem("pokedex", JSON.stringify(pokedex));
-  }, [pokedex]);
+    const pokedexData = localStorage.getItem('pokedex');
+    if (pokedexData) {
+      setPokedex(JSON.parse(pokedexData));
+      setLoading(false);
+    }
+  }, [setPokedex]);
 
+  useEffect(() => {
+    localStorage.setItem('pokedex', JSON.stringify(pokedex));
+  }, [pokedex]);
 
   const successAlert = (msg) => {
     message.success({
       content: `${msg}`,
       duration: 1,
-      className: "custom-class",
+      className: 'custom-class',
       style: {
-        marginTop: "15vh",
+        marginTop: '15vh',
       },
     });
   };
@@ -52,9 +45,9 @@ const GlobalState = (props) => {
   const errorAlert = (msg) => {
     message.error({
       content: `${msg}`,
-      className: "custom-class",
+      className: 'custom-class',
       style: {
-        marginTop: "15vh",
+        marginTop: '15vh',
       },
     });
   };
@@ -98,10 +91,16 @@ const GlobalState = (props) => {
     }
   };
 
-  
   return (
     <GlobalStateContext.Provider
-      value={{ pokedex, pokemons,loading, addToPokeDex, removeFromPokedex, setLoading}}
+      value={{
+        pokedex,
+        pokemons,
+        loading,
+        addToPokeDex,
+        removeFromPokedex,
+        setLoading,
+      }}
     >
       {props.children}
       <Footer />
