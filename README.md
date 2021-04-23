@@ -14,6 +14,7 @@
 - [x] Remover da pokedex
 - [x] Página de detalhes
 - [x] Responsividade (Iphone e Ipad)
+- [x] Loading Customizado
 
 ### Prints 🎨
 ![image](https://user-images.githubusercontent.com/60359003/115906773-5c654380-a43e-11eb-8fa1-a06d6951f369.png)
