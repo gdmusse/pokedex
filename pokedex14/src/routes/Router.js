@@ -6,6 +6,8 @@ import Detailspage from "../pages/DetailsPage/DetailsPage";
 import Header from "../components/Header";
 import Home from "../images/home.png";
 import Pokedex from "../images/pokedex.png"
+import Footer from "../components/Footer/Footer"
+
 
 const Router = () => {
   return (
