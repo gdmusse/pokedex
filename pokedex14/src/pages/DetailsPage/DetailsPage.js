@@ -70,7 +70,7 @@ const DetailsPage = () => {
 
           <Tipos>
 
-            <h2>Sou do tipo</h2>
+            <h2>Tipo</h2>
             {getDetails && getDetails.types.map((type) => {
               console.log(type.type.name)
               return (
@@ -81,12 +81,12 @@ const DetailsPage = () => {
           </Tipos>
 
           <Movimentos>
-            <h2>Meus 5 movimentos são</h2>
+            <h2>Movimentos (5)</h2>
 
             <table>
               <thead>
                 <tr>
-                  <th>Move</th>
+                  <th>Move</th> 
                   <th>Level</th>
                 </tr>
               </thead>

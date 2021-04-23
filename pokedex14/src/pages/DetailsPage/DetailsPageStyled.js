@@ -81,24 +81,31 @@ export const Caracteristicas = styled.div`
 
     tr {
       border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+      
     }
 
     & td {
       font-size: 16px;
       padding: 2px 8px;
+      
     }
 
     tr > td:first-of-type {
       width: 30%;
+      
     }
+
     tr > td:nth-of-type(2) {
       text-align: center;
       width: 12%;
+      
     }
     tr > td:last-of-type {
+      
       meter {
         height: 30px;
         width: 90%;
+
       }
     }
 
@@ -114,7 +121,7 @@ export const Informacoes = styled.div`
 export const Tipos = styled.div`
   display: flex;
   flex-direction: column;
-
+  margin-top: 10px;
   & > span {
     align-self: center;
   }
