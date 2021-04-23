@@ -40,8 +40,6 @@ const ImgContainer = styled.div`
     width: 50px;
     flex-wrap: wrap;
   }
-  @media (max-width: 1200px) {
-  }
   & > img:hover {
     cursor: pointer;
   }
