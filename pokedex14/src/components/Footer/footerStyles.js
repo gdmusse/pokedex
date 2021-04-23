@@ -3,18 +3,24 @@ import styled from "styled-components";
 
 export const DivFooter = styled.div`
   background-color: #ef5350;
-  font-family: 'Press Start 2P', cursive;;
+  font-family: 'Press Start 2P', cursive;
   color: white;
-  height: 23em;
-  padding: 0 10em;
+  height: 290px;
   margin-top: 4em;
-  @media (min-device-width: 320px) and (max-device-width: 420px) {
-    flex-direction: column;
-    padding: 1em;
-    height: 100%;
+  @media (max-width: 1200px) {
+    height: 30%;
   }
+  @media (max-device-width: 420px) {
 
+    height: 10%;
+  }
+  
 `;
+
+export const DivContainer = styled.div`
+  padding: 0 10vw;
+`
+
 export const DivImg = styled.div`
   display: flex;
   align-items: center;
@@ -30,15 +36,19 @@ export const DivText = styled.div`
   border: 1px solid black;
   border-left: none;
   border-right: none;
+  text-align: center;
+  font-size: calc(10px + 0.1vw);
   @media (min-device-width: 320px) and (max-device-width: 420px) {
     flex-direction: column;
     text-align: center;
-    font-size: 20px;
   }
 `;
 
 export const ImgPokemon = styled.img`
-  width: 10%;
+  width: 6%;
+  @media (max-width: 1200px) {
+    width: 10%;
+  }
   @media (min-device-width: 320px) and (max-device-width: 420px) {
     width: 20%;
   }
@@ -48,17 +58,13 @@ export const Title = styled.p`
  font-weight: bold;
 `
 
-export const Copyright = styled.p`
+export const Copyright = styled.div`
   text-align: center;
   font-weight: bold;
-  padding-top: 20px;
+  font-size: calc(10px + 0.1vw);
+  padding-top: 5px;
+  padding-bottom: 5px;
   color:black;
-`
-export const Link = styled.a`
-  text-decoration: none;
-  color: #222222;
-  &:hover{
-    text-decoration: none;
-    color: #ffd500;
-  }
+  background-color: white;
+
 `
