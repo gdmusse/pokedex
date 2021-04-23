@@ -72,6 +72,7 @@ const PokeTypes = styled.section`
 
 const Type = styled.span`
   text-transform: capitalize;
+  font-weight: bold;
   background: ${(props) => typeColors[props.type]};
   padding: 6px 22px;
   border-radius: 4px;
