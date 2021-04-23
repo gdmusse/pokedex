@@ -2,7 +2,13 @@ import React, {useContext} from 'react'
 import { useParams } from "react-router-dom";
 import BASE_URL from '../../routes/urls'
 import useRequestData from '../../Hooks/useRequestData'
-import {DetailsCard, Linha } from './DetailsPageStyled'
+import {
+  DetailsCard, 
+  Linha,
+  ColunaImagens,
+  BoxImagens,
+
+} from './DetailsPageStyled'
 
 
 
@@ -15,13 +21,27 @@ const DetailsPage = () => {
    
        return (
         <DetailsCard>
-            <Linha>
+            <ColunaImagens>
             { getDetails && (
                 <Linha>
-                <img src={getDetails.sprites.front_default} alt= 'front' />
-                <img src={getDetails.sprites.back_default}  alt= 'back'/>
+                <BoxImagens src={getDetails.sprites.front_default} alt= 'front' />
+                <BoxImagens src={getDetails.sprites.back_default}  alt= 'back'/>
                 </Linha>
             )}
+            </ColunaImagens>
+
+
+            <Linha>
+            <h2>Características</h2>
+            {getDetails &&
+              getDetails.stats.map((stat) => {
+                return (
+                  <Linha>
+                    <p>Meu {stat.stat.name} é {stat.base_stat}</p>
+                  </Linha>
+                );
+              })}
+
             </Linha>
 
             <Linha>
@@ -37,20 +57,7 @@ const DetailsPage = () => {
 
              }
             </Linha>
-
-            <Linha>
-            <h2>Características</h2>
-            {getDetails &&
-              getDetails.stats.map((stat) => {
-                return (
-                  <Linha>
-                    <p>Meu {stat.stat.name} é {stat.base_stat}</p>
-                  </Linha>
-                );
-              })}
-
-            </Linha>
-
+            
             <Linha>
             <h2>Meus 5 movimentos são</h2>
             {getDetails &&
