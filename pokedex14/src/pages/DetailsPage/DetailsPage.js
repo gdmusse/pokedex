@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import { useParams } from "react-router-dom";
 import BASE_URL from '../../routes/urls'
 import useRequestData from '../../Hooks/useRequestData'
+import Loader from "../../components/Loader"
 import {
   DetailsCard, 
   Linha,
@@ -10,16 +11,19 @@ import {
 
 } from './DetailsPageStyled'
 
-
+import GlobalStateContext from '../../global/GlobalStateContext';
 
 const DetailsPage = () => {
+
+  const { loading} = useContext(GlobalStateContext);
 
     const pathParams = useParams();
     
     
     const getDetails = useRequestData(`${BASE_URL}/pokemon/${pathParams.name}`, undefined);
    
-       return (
+    if(getDetails !== 0 && loading === false){
+      return (
         <DetailsCard>
             <ColunaImagens>
             { getDetails && (
@@ -67,6 +71,11 @@ const DetailsPage = () => {
             </Linha>
         </DetailsCard>
       );
+    }
+    else {
+      return <Loader/>
+    }
+       
     };
 
 export default DetailsPage;
