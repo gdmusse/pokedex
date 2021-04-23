@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import GlobalStateContext from './GlobalStateContext';
 import getAllPokemons from '../utils/getAllPokemons';
 import { message } from 'antd';
+import Footer from "../components/Footer/Footer"
+
 
 const GlobalState = (props) => {
   const [pokedex, setPokedex] = useState([]);
@@ -101,6 +103,7 @@ const GlobalState = (props) => {
       }}
     >
       {props.children}
+      <Footer />
     </GlobalStateContext.Provider>
   );
 };
