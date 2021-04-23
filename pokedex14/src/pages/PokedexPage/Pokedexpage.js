@@ -34,12 +34,12 @@ const Pokedexpage = () => {
           showDetails={() => goToDetailspage(history, item.name)}
         />
       ));
-      if(pokemons.length !== 0 && loading === false){
-        return <PageContainer>{pokeCards}</PageContainer>;
-      }
-      else {
-        return <Loader/>
-      }
+  if (pokemons.length !== 0 && loading === false) {
+    return <PageContainer>{pokeCards}</PageContainer>;
+  }
+  else {
+    return <Loader />
+  }
 
 };
 

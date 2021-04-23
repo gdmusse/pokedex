@@ -1,10 +1,14 @@
-import React, { Component } from "react";
-import styled, { keyframes } from "styled-components";
-import PokeBall from "../images/pokeball.png";
+import React, { Component } from 'react';
+import styled, { keyframes } from 'styled-components';
+import PokeBall from '../images/pokeball.png';
 
 const spin = keyframes`
-0% { transform: rotate(0deg); }
-100% { transform: rotate(360deg); }
+0% { 
+  transform: rotate(0deg); 
+}
+100% {
+   transform: rotate(360deg); 
+}
 `;
 
 const PokeBallImg = styled.img`

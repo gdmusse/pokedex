@@ -15,7 +15,7 @@ const PageContainer = styled.main`
 
 const Homepage = () => {
   const history = useHistory();
-  const { addToPokeDex, pokemons, pokedex, loading} = useContext(GlobalStateContext);
+  const { addToPokeDex, pokemons, pokedex, loading } = useContext(GlobalStateContext);
 
   const pokeCards =
     pokemons &&
@@ -32,12 +32,12 @@ const Homepage = () => {
         />
       ));
 
-      if(pokemons.length !== 0 && loading === false){
-        return <PageContainer>{pokeCards}</PageContainer>;
-      }
-      else {
-        return <Loader/>
-      }
+  if (pokemons.length !== 0 && loading === false) {
+    return <PageContainer>{pokeCards}</PageContainer>;
+  }
+  else {
+    return <Loader />
+  }
 };
 
 export default Homepage;
