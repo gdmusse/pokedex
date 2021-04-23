@@ -13,12 +13,20 @@ const PageContainer = styled.main`
   grid-gap: 20px;
 `;
 
+const DivPokeVazia = styled.div`
+width: 100%;
+height: 50vh;
+color: black;
+font-size: calc(20px + 2vw);
+text-align: center;
+padding-top: 20px;
+`
 const Pokedexpage = () => {
   const history = useHistory();
   const { removeFromPokedex, pokemons, pokedex, loading } = useContext(
     GlobalStateContext
   );
-
+    console.log("Pokedex", pokedex)
   const pokeCards =
     pokemons &&
     pokemons
@@ -34,8 +42,14 @@ const Pokedexpage = () => {
           showDetails={() => goToDetailspage(history, item.name)}
         />
       ));
-  if (pokemons.length !== 0 && loading === false) {
+  if (pokedex.length !== 0 && loading === false) {
     return <PageContainer>{pokeCards}</PageContainer>;
+  } else if (pokedex.length == 0){
+        return (
+          <DivPokeVazia>
+          Sua Pokedex está vazia!
+          </DivPokeVazia>
+        )
   }
   else {
     return <Loader />
