@@ -10,7 +10,7 @@
 ### Funcionamento 🛠
 
 - [x] Lista de 20 pokemons a mostra
-- [x] Adiconar a pokedex
+- [x] Adicionar a pokedex
 - [x] Remover da pokedex
 - [x] Página de detalhes
 - [x] Responsividade (Iphone e Ipad)
