@@ -4,7 +4,7 @@
   <i>Danielle Costa, Gabriel Musse, Lucas Bacelar</i>
 </div> 
 &nbsp
-<p align="center">Link do Surge: link</p>
+<p align="center">Link do Surge: http://cruz-pokedex14.surge.sh/</p>
 <p align="center">Link da API: https://pokeapi.co/</p>
 
 ### Funcionamento 🛠
