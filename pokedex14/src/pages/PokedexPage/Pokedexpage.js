@@ -9,7 +9,7 @@ import Loader from "../../components/Loader"
 const PageContainer = styled.main`
   padding: 45px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 20px;
 `;
 
@@ -26,7 +26,6 @@ const Pokedexpage = () => {
   const { removeFromPokedex, pokemons, pokedex, loading } = useContext(
     GlobalStateContext
   );
-    console.log("Pokedex", pokedex)
   const pokeCards =
     pokemons &&
     pokemons
@@ -44,12 +43,12 @@ const Pokedexpage = () => {
       ));
   if (pokedex.length !== 0 && loading === false) {
     return <PageContainer>{pokeCards}</PageContainer>;
-  } else if (pokedex.length == 0){
-        return (
-          <DivPokeVazia>
-          Sua Pokedex está vazia!
-          </DivPokeVazia>
-        )
+  } else if (pokedex.length === 0) {
+    return (
+      <DivPokeVazia>
+        Sua Pokedex está vazia!
+      </DivPokeVazia>
+    )
   }
   else {
     return <Loader />
