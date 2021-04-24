@@ -8,17 +8,17 @@ const GlobalState = (props) => {
   const [pokedex, setPokedex] = useState([]);
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     setLoading(true);
     const allPokemons = async () => {
-      const result = await getAllPokemons(30, (page * 20));
+      const result = await getAllPokemons(30, (currentPage * 20));
       setPokemons(result);
       setLoading(false);
     };
     allPokemons();
-  }, [setPokemons, page]);
+  }, [setPokemons, currentPage]);
 
   useEffect(() => {
     const pokedexData = localStorage.getItem('pokedex');
@@ -32,8 +32,8 @@ const GlobalState = (props) => {
     localStorage.setItem('pokedex', JSON.stringify(pokedex));
   }, [pokedex]);
 
-  const changePage = (page) => {
-    setPage(page - 1);
+  const changeCurrentPage = (currentPage) => {
+    setCurrentPage(currentPage - 1);
     window.scrollTo(0, 0);
   }
 
@@ -106,7 +106,8 @@ const GlobalState = (props) => {
         addToPokeDex,
         removeFromPokedex,
         setLoading,
-        changePage,
+        changeCurrentPage,
+        currentPage,
         pokemonRegistered
       }}
     >

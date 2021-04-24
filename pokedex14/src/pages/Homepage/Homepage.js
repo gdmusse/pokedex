@@ -17,7 +17,7 @@ const PageContainer = styled.main`
 
 const Homepage = () => {
   const history = useHistory();
-  const { addToPokeDex, pokemons, pokedex, loading, changePage } = useContext(GlobalStateContext);
+  const { addToPokeDex, pokemons, pokedex, loading, changeCurrentPage, currentPage } = useContext(GlobalStateContext);
 
   const pokeCards =
     pokemons &&
@@ -38,7 +38,7 @@ const Homepage = () => {
     return (
       <>
         <PageContainer>{pokeCards}</PageContainer>;
-        <Pagination changePage={changePage} />
+        <Pagination currentPage={currentPage} changeCurrentPage={changeCurrentPage} />
       </>
     )
   }
