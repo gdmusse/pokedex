@@ -14,10 +14,18 @@ const typeColors = {
   poison: '#A33EA1',
   psychic: '#F95587',
   rock: '#B6A136',
+  dark: '#705746',
+  steel: '#B7B7CE',
   dragon: '#6F35FC',
   electric: '#F7D02C',
   fairy: '#D685AD',
 };
+
+export const BtnContainer = styled.div`
+  display: flex;
+  padding-top: 10px;
+  justify-content: center;
+`
 
 export const DetailsCard = styled.div`
   width: 90%;
