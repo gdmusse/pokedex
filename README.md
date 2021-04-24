@@ -15,19 +15,23 @@
 - [x] Página de detalhes
 - [x] Responsividade (Iphone e Ipad)
 - [x] Loading Customizado
+- [x] Paginação
 
 ### Prints 🎨
-![image](https://user-images.githubusercontent.com/60359003/115906773-5c654380-a43e-11eb-8fa1-a06d6951f369.png)
-
-***
-![image](https://user-images.githubusercontent.com/60359003/115906788-625b2480-a43e-11eb-83a5-45b6cfab15a8.png)
+![image](https://user-images.githubusercontent.com/60359003/115968045-25f5fa00-a50c-11eb-83fc-35f05fd2488c.png)
 
 
 ***
-![image](https://user-images.githubusercontent.com/60359003/115906802-68510580-a43e-11eb-9270-ce7afab15e5c.png)
+![image](https://user-images.githubusercontent.com/60359003/115968054-31e1bc00-a50c-11eb-9c20-c723afbc690a.png)
+
+
+***
+![image](https://user-images.githubusercontent.com/60359003/115968060-38703380-a50c-11eb-9e21-826124628c27.png)
+
 
 ***
 ![image](https://user-images.githubusercontent.com/60359003/115907413-35f3d800-a43f-11eb-92c6-8409ce80d1ce.png)
 
 ***
-![image](https://user-images.githubusercontent.com/60359003/115907430-3b512280-a43f-11eb-93c6-ffe46e693ec8.png)
+![image](https://user-images.githubusercontent.com/60359003/115968071-445bf580-a50c-11eb-9b3e-bf6eda7dd2a6.png)
+
