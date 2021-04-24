@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Loader from "../../components/Loader"
 import React, { useContext } from 'react';
 import GlobalStateContext from '../../global/GlobalStateContext';
+import Pagination from '../../components/Pagination/Pagination'
+
 
 const PageContainer = styled.main`
   padding: 45px;
@@ -15,7 +17,7 @@ const PageContainer = styled.main`
 
 const Homepage = () => {
   const history = useHistory();
-  const { addToPokeDex, pokemons, pokedex, loading } = useContext(GlobalStateContext);
+  const { addToPokeDex, pokemons, pokedex, loading, changePage } = useContext(GlobalStateContext);
 
   const pokeCards =
     pokemons &&
@@ -33,7 +35,12 @@ const Homepage = () => {
       ));
 
   if (pokemons.length !== 0 && loading === false) {
-    return <PageContainer>{pokeCards}</PageContainer>;
+    return (
+      <>
+        <PageContainer>{pokeCards}</PageContainer>;
+        <Pagination changePage={changePage} />
+      </>
+    )
   }
   else {
     return <Loader />

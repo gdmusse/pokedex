@@ -15,6 +15,8 @@ const typeColors = {
   psychic: '#F95587',
   rock: '#B6A136',
   dragon: '#6F35FC',
+  dark: '#705746',
+  steel: '#B7B7CE',
   electric: '#F7D02C',
   fairy: '#D685AD',
 };

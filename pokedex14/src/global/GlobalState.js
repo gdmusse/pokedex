@@ -4,20 +4,21 @@ import getAllPokemons from '../utils/getAllPokemons';
 import { message } from 'antd';
 import Footer from "../components/Footer/Footer"
 
-
 const GlobalState = (props) => {
   const [pokedex, setPokedex] = useState([]);
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
+    setLoading(true);
     const allPokemons = async () => {
-      const result = await getAllPokemons(20);
+      const result = await getAllPokemons(30, (page * 20));
       setPokemons(result);
       setLoading(false);
     };
     allPokemons();
-  }, [setPokemons]);
+  }, [setPokemons, page]);
 
   useEffect(() => {
     const pokedexData = localStorage.getItem('pokedex');
@@ -31,13 +32,18 @@ const GlobalState = (props) => {
     localStorage.setItem('pokedex', JSON.stringify(pokedex));
   }, [pokedex]);
 
+  const changePage = (page) => {
+    setPage(page - 1);
+    window.scrollTo(0, 0);
+  }
+
   const successAlert = (msg) => {
     message.success({
       content: `${msg}`,
       duration: 1,
       className: 'custom-class',
       style: {
-        marginTop: '15vh',
+        marginTop: '10vh',
       },
     });
   };
@@ -47,7 +53,7 @@ const GlobalState = (props) => {
       content: `${msg}`,
       className: 'custom-class',
       style: {
-        marginTop: '15vh',
+        marginTop: '10vh',
       },
     });
   };
@@ -100,6 +106,8 @@ const GlobalState = (props) => {
         addToPokeDex,
         removeFromPokedex,
         setLoading,
+        changePage,
+        pokemonRegistered
       }}
     >
       {props.children}

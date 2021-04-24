@@ -23,15 +23,12 @@ padding-top: 20px;
 `
 const Pokedexpage = () => {
   const history = useHistory();
-  const { removeFromPokedex, pokemons, pokedex, loading } = useContext(
+  const { removeFromPokedex, pokedex, loading } = useContext(
     GlobalStateContext
   );
   const pokeCards =
-    pokemons &&
-    pokemons
-      .filter((pokemon) => {
-        return pokedex?.some((registered) => registered.id === pokemon.id);
-      })
+    pokedex &&
+    pokedex
       .map((item) => (
         <PokeCard
           key={item.id}
