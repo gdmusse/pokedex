@@ -23,6 +23,7 @@ export const DetailsCard = styled.div`
   width: 90%;
   display: flex; 
   justify-content: center;
+  padding: 10px 10px 20px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
@@ -81,17 +82,15 @@ export const Caracteristicas = styled.div`
 
     tr {
       border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-      
     }
 
     & td {
       font-size: 16px;
-      padding: 2px 8px;
-      
+      padding: 2px 8px; 
     }
 
     tr > td:first-of-type {
-      width: 30%;
+      width: 22%;
       
     }
 
@@ -101,12 +100,14 @@ export const Caracteristicas = styled.div`
       
     }
     tr > td:last-of-type {
-      
       meter {
         height: 30px;
         width: 90%;
-
       }
+    }
+
+    tfoot td:last-of-type {
+      font-weight: bold;
     }
 
   }
@@ -121,9 +122,11 @@ export const Informacoes = styled.div`
 export const Tipos = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 10px;
-  & > span {
-    align-self: center;
+  & > div {
+    display: flex;
+    gap: 10px;
   }
 `
 export const Tipo = styled.span`
@@ -139,9 +142,29 @@ export const Movimentos = styled.div`
   display: flex;
   flex-direction: column;
   text-transform: capitalize;
+  max-height: 700px;
 
   & > table {
     align-self: center;
     width: 70%;
+
+    th {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    td, th {
+      padding: 1px 5px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+
+    thead {
+      th:last-of-type {
+        text-align: left;
+      }
+    }
+
+    tr > td:last-of-type {
+      text-align: left;
+    }
   }
 `

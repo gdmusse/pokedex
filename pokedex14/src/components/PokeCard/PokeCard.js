@@ -1,35 +1,27 @@
 import {
   PokeCardContainer,
   PokeDetails,
-  PokeTypes,
-  Type,
   CardButtons,
 } from './styles';
 import { Button } from '../index';
 
 const PokeCard = ({ pokemon, type, onClick, showDetails }) => {
   return (
-    <PokeCardContainer>
+    <PokeCardContainer type={pokemon.types[0].type.name}>
       <div>
         <img src={pokemon.sprites?.front_default} alt="front of the pokemon" />
       </div>
       <PokeDetails>
-        <h5>Nº{pokemon.id}</h5>
+        <h3>#{pokemon.id}</h3>
         <h2>{pokemon.name}</h2>
-        <PokeTypes>
-          {pokemon.types?.map((item) => (
-            <Type key={item.type.name} type={item.type.name}>
-              {item.type.name}
-            </Type>
-          ))}
-        </PokeTypes>
         <CardButtons>
           <Button
             text={type === 'pokedex' ? 'Remover' : 'Adicionar'}
-            color={type === 'pokedex' ? 'black' : 'black'}
+            textColor="white"
+            color="red"
             onClick={onClick}
           />
-          <Button text="Details" color="black" onClick={showDetails} />
+          <Button text="Detalhes" color="white" textColor="red" onClick={showDetails} />
         </CardButtons>
       </PokeDetails>
     </PokeCardContainer>

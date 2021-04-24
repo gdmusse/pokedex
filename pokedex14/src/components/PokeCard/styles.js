@@ -20,30 +20,27 @@ const typeColors = {
 };
 
 const PokeCardContainer = styled.article`
-  *,
-  *:before,
-  *:after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
 
+  box-sizing: content-box;
+  padding: 20px 0;
+  border-radius: 12px;
   font-family: sans-serif;
+  background: #ececec;
 
   display: flex;
   flex-direction: column;
 
   & > div:first-of-type {
-    padding: 16px;
+    padding: 0 16px;
     & > img {
       border-radius: 8px;
-      background: #ececec;
+      background: ${(props) => typeColors[props.type]};
       width: 100%;
       height: 100%;
       object-fit: contain;
 
       :hover {
-        transform: scale(1.1);
+        transform: scale(1.03);
       }
     }
   }
@@ -55,34 +52,24 @@ const PokeDetails = styled.section`
   flex-direction: column;
 
   & > h2 {
-    padding-top: 12px;
+    text-align: center;
     text-transform: capitalize;
   }
 
-  & > h5 {
+  & > h3 {
+    padding: 0;
+    margin:0;
     color: #7c7c7c;
   }
 `;
 
-const PokeTypes = styled.section`
-  padding-top: 8px;
-  gap: 10px;
-  display: flex;
-`;
-
-const Type = styled.span`
-  text-transform: capitalize;
-  font-weight: bold;
-  background: ${(props) => typeColors[props.type]};
-  padding: 6px 22px;
-  border-radius: 4px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-`;
-
 const CardButtons = styled.section`
-  padding-top: 20px;
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
+
+  & > button {
+    flex: 1;
+  }
 `;
 
-export { PokeCardContainer, PokeDetails, PokeTypes, Type, CardButtons };
+export { PokeCardContainer, PokeDetails, CardButtons };

@@ -48,10 +48,10 @@ const DetailsPage = () => {
                 getDetails.stats.map((stat) => {
                   totalStats += stat.base_stat;
                   return (
-                    <tr>
+                    <tr key={stat.stat.name}>
                       <td>{stat.stat.name}</td>
                       <td>{stat.base_stat}</td>
-                      <td><meter min="0" max="190" low="60" high="100" optimum="150" value={stat.base_stat}></meter></td>
+                      <td><meter min="0" max="190" low="60" high="90" optimum="120" value={stat.base_stat}></meter></td>
                     </tr>
                   );
                 })}
@@ -71,32 +71,42 @@ const DetailsPage = () => {
           <Tipos>
 
             <h2>Tipo</h2>
-            {getDetails && getDetails.types.map((type) => {
-              console.log(type.type.name)
-              return (
-                <Tipo type={type.type.name}>{type.type.name}</Tipo>
-              )
-            })
-            }
+            <div>
+              {getDetails && getDetails.types.map((type) => {
+                return (
+                  <Tipo key={type.type.name} type={type.type.name}>{type.type.name}</Tipo>
+                )
+              })
+              }
+            </div>
+
           </Tipos>
 
           <Movimentos>
-            <h2>Movimentos (5)</h2>
+            <h2>Movimentos</h2>
 
             <table>
               <thead>
                 <tr>
-                  <th>Move</th> 
                   <th>Level</th>
+                  <th>Move</th>
                 </tr>
               </thead>
-              {getDetails &&
-                getDetails.moves.map((move, num) => {
-                  return num < 5 && <tr>
-                    <td>{move.move.name} </td>
-                    <td>{move.version_group_details[0].level_learned_at}</td>
-                  </tr>;
-                })}
+              <tbody>
+                {getDetails &&
+                  getDetails.moves.sort((a, b) => {
+                    return a.version_group_details[0].level_learned_at - b.version_group_details[0].level_learned_at;
+                  })
+                    .filter((move) => {
+                      return move.version_group_details[0].move_learn_method.name === "level-up"
+                    })
+                    .map((move, num) => {
+                      return num < 40 && <tr key={move.move.name}>
+                        <td>{move.version_group_details[0].level_learned_at}</td>
+                        <td>{move.move.name} </td>
+                      </tr>;
+                    })}
+              </tbody>
             </table>
 
           </Movimentos>

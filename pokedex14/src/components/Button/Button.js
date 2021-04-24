@@ -1,8 +1,8 @@
 import StyledButton from './styles.js';
 
-const Button = ({ text, color, onClick }) => {
+const Button = ({ text, color, textColor, onClick }) => {
   return (
-    <StyledButton color={color} onClick={onClick}>
+    <StyledButton color={color} textColor={textColor} onClick={onClick}>
       {text}
     </StyledButton>
   );
