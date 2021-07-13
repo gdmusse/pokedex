@@ -1,4 +1,4 @@
-### <p align="center">💻 Pokedex 14 💻</p>
+<h1 align="center">💻 Pokedex 14 💻</h1>
 
 <div align="center" margin-bottom="10px">
   <i>Danielle Costa, Gabriel Musse, Lucas Bacelar</i>
